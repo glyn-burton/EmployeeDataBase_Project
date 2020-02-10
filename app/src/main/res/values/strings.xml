@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">EmployeeDataBase_Project</string>
+    <string-array name="department_array">
+        <item>Design</item>
+        <item>Development</item>
+        <item>Finance</item>
+        <item>HR</item>
+        <item>Legal</item>
+    </string-array>
+
+</resources>

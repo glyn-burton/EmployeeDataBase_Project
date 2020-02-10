@@ -1,0 +1,32 @@
+1. Define the following thread synchronization approaches:
+        - Locks
+        When each resource that is using a thread locks it so only one resource can use the thread at a time
+        - Mutex
+        When you put a restriction around an important section of a resource to prevent data races.
+
+        - Semaphores
+        They are variables used to control access to a commonly used resource. It keeps track of the units
+        available for the resource to use.
+
+        - Synchronized
+        This means it uses synchronized blocks that make use of keywords. If a block is on a object no other
+        threads are allowed to use the object until its released by the previos thread.
+
+        - Volatile
+        When placed into a variable, it tells all threads to do their operations on the main thread.
+
+        - Atomic
+        This prevents treads from running operations on these variables.
+
+2. Define Deadlock conditions.
+A deadlock condition happens during multi-threading. It means that two threads are waiting for each
+other to release the lock, and they are trapped in a endless loop of waiting for each other.
+3. Define Race conditions.
+Race conditions are what happens if multiple operations occur at the same time and the order affects the overall
+result.
+4. What is a memory leak?
+A memory leak is when memory is allocated for an object, and that object never gets deallocated.
+5. What is an ANR and what are some common causes?
+An ANR stands for Activity Non Responsive. It occurs when there are memory leaks, many memory inefficient
+methods are used, or a broadcast reciever fails to complete the reception in 10 seconds.
+Should the app get a ANR, the system will ask the user if they wish to stop the app in 5 seconds.
