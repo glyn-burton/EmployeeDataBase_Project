@@ -1,5 +1,6 @@
 package com.example.employeedatabase_project
 
+import android.content.ContentValues
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -42,7 +43,17 @@ class UpdateEmployeeActivity : AppCompatActivity() {
         when (view.id) {
 
             R.id.btnUpdateEmployee -> {
-                val name = etName.text.toString()
+                var newValues = ContentValues().apply{put(COL_FIRST_NAME,etName.text.toString())
+                    put(COL_LAST_NAME,etLastName.text.toString())
+                    put(COL_STREET_ADDRESS,etStreetAddress.text.toString())
+                    put(COL_CITY,etCity.text.toString())
+                    put(COL_STATE,etState.text.toString())
+                    put(COL_ZIP,etZip.text.toString())
+                    put(COL_DEPARTMENT,etDepartment.text.toString())
+                    put(COL_POSITION,etPostion.text.toString())
+                    put(COL_TAXID,etTaxID.text.toString())
+                }
+                /*val name = etName.text.toString()
                 val lastName = etLastName.text.toString()
                 val address = etStreetAddress.text.toString()
                 val city = etCity.text.toString()
@@ -51,7 +62,8 @@ class UpdateEmployeeActivity : AppCompatActivity() {
                 val department = etDepartment.text.toString()
                 val position = etPostion.text.toString()
                 val taxID = etTaxID.text.toString()
-                database.updatePersonInDatabase(Employee(name, lastName, address, city, state, zip, position, department, taxID))
+                database.updatePersonInDatabase(Employee(name, lastName, address, city, state, zip, position, department, taxID))*/
+                contentResolver.update(CONTENT_URI,newValues,etTaxID.text.toString(),null)
                 finish()
 
             }

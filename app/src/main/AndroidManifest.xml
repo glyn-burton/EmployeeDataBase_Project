@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".UpdateEmployeeActivity"></activity>
+        <provider
+            android:authorities="com.example.employeedatabase_project"
+            android:name=".EmployeeProvider"
+            android:enabled="true"
+            android:exported="true">
+        </provider>
         <activity
             android:name=".AddEmployeeActivity"
             android:screenOrientation="portrait" />

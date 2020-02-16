@@ -36,7 +36,8 @@ class EmployeeDetailsActivity : AppCompatActivity() {
             R.id.btnDeleteEmployee ->{
 
                 val taxID = tvTaxID.text.toString()
-                database.removePersonFromDatabase(employee?.taxID.toString())
+                database.removePersonFromDatabase(taxID)
+                contentResolver.delete(CONTENT_URI,taxID, null)
                 finish()
             }
             R.id.btnUpdateEmployee -> {

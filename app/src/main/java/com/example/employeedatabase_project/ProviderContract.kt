@@ -4,7 +4,7 @@ import android.content.ContentUris
 import android.net.Uri
 import android.provider.BaseColumns
 
-const val CONTENT_AUTHORITY = "com.example.employeedatabase"
+const val CONTENT_AUTHORITY = "com.example.employeedatabase_project"
 val BASE_CONTENT_ID = Uri.parse("content://${CONTENT_AUTHORITY}")
 const val PATH_EMPLOYEE = "employee"
 val CONTENT_URI = BASE_CONTENT_ID.buildUpon().appendPath(PATH_EMPLOYEE).build()

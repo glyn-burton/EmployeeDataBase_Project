@@ -105,7 +105,7 @@ class EmployeeProvider : ContentProvider(){
         selectionArgs: Array<String>?
     ): Int {
         val databaseHelper = employeeDatabaseHelper.writableDatabase
-        val rowsAffected = databaseHelper.update(TABLE_NAME, values, "$COL_LAST_NAME = ?", selectionArgs)
+        val rowsAffected = databaseHelper.update(TABLE_NAME, values, "$COL_TAXID = ?", selectionArgs)
         if(rowsAffected > 0)
         {
             context?.contentResolver?.notifyChange(uri, null)
