@@ -10,20 +10,22 @@ class EmployeeDetailsActivity : AppCompatActivity() {
 
 
     val database = EmployeeDatabaseHelper(this)
+    val employee by lazy {intent?.getParcelableExtra<Employee>(KEY_EMPLOYEE)}
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_employee_details)
-        val passedEmployee = intent?.getParcelableExtra<Employee>(KEY_EMPLOYEE)
-        tvFirstName.text = passedEmployee?.firstName
-        tvLastName.text = passedEmployee?.lastName
-        tvAddress.text = passedEmployee?.streetAddress
-        tvCity.text = passedEmployee?.city
-        tvState.text = passedEmployee?.state
-        tvZip.text = passedEmployee?.zip
-        tvDepartment.text = passedEmployee?.department
-        tvPosition.text = passedEmployee?.position
-        tvTaxID.text = passedEmployee?.taxID
+
+        tvFirstName.text = employee?.firstName
+        tvLastName.text = employee?.lastName
+        tvAddress.text = employee?.streetAddress
+        tvCity.text = employee?.city
+        tvState.text = employee?.state
+        tvZip.text = employee?.zip
+        tvDepartment.text = employee?.department
+        tvPosition.text = employee?.position
+        tvTaxID.text = employee?.taxID
 
     }
 
@@ -33,16 +35,17 @@ class EmployeeDetailsActivity : AppCompatActivity() {
 
             R.id.btnDeleteEmployee ->{
 
-                val taxID = tvTaxID.toString()
-                database.removePersonFromDatabase(taxID)
+                val taxID = tvTaxID.text.toString()
+                database.removePersonFromDatabase(employee?.taxID.toString())
                 finish()
             }
             R.id.btnUpdateEmployee -> {
 
                 val intent = Intent(this,UpdateEmployeeActivity::class.java)
-                val employee = intent?.getParcelableExtra<Employee>(KEY_EMPLOYEE)
+
                 intent.putExtra(KEY_EMPLOYEE,employee)
                 this.startActivity(intent)
+                finish()
 
 
             }

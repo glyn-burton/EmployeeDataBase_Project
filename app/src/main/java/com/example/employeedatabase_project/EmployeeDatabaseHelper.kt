@@ -143,14 +143,14 @@ class EmployeeDatabaseHelper(context:Context) :
         contentValues.put(COL_POSITION, employee.position)
         contentValues.put(COL_TAXID, employee.taxID)
 
-        database.update(TABLE_NAME,contentValues, "$COL_TAXID = '?'", arrayOf(employee.taxID))
+        database.update(TABLE_NAME,contentValues, "$COL_TAXID = ?", arrayOf(employee.taxID))
         database.close()
 
     }
 
     fun removePersonFromDatabase(taxId:String){
         val database = writableDatabase
-        database.delete(TABLE_NAME,"$COL_TAXID = '?'", arrayOf(taxId))
+        database.delete(TABLE_NAME,"$COL_TAXID = ?", arrayOf(taxId))
         database.close()
 
 

@@ -150,11 +150,12 @@
     </TableLayout>
 
     <Button
-        android:id="@+id/btnAddEmployee"
+        android:id="@+id/btnUpdateEmployee"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         android:textSize="20sp"
-        android:text="Update Employee"/>
+        android:text="Update Employee"
+        android:onClick="onClick"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

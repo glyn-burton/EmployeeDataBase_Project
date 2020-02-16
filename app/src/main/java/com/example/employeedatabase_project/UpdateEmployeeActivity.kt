@@ -3,6 +3,7 @@ package com.example.employeedatabase_project
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
+import android.util.Log
 import android.view.View
 import kotlinx.android.synthetic.main.activity_add_employee.*
 import kotlinx.android.synthetic.main.activity_add_employee.etCity
@@ -18,14 +19,13 @@ import kotlinx.android.synthetic.main.activity_update_employee.*
 
 class UpdateEmployeeActivity : AppCompatActivity() {
 
-    var employeeList: ArrayList<Employee> = ArrayList<Employee>()
-    val adapter = EmployeeAdapter(employeeList)
     val database = EmployeeDatabaseHelper(this)
+    val passedEmployee by lazy {intent?.getParcelableExtra<Employee>(KEY_EMPLOYEE)}
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_update_employee)
+        Log.d("TAG",passedEmployee?.firstName.toString())
 
-        val passedEmployee = intent?.getParcelableExtra<Employee>(KEY_EMPLOYEE)
         etName.setText(passedEmployee?.firstName)
         etLastName.setText(passedEmployee?.lastName)
         etStreetAddress.setText(passedEmployee?.streetAddress)
